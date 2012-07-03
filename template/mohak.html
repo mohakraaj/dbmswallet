@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>eWallet</title>
+		<link rel="stylesheet" href="style.css" media="screen">
+
+		<style type="text/css" title="text/css">
+			@import "/site_media/css/claro.css";
+			@import "http://ajax.googleapis.com/ajax/libs/dojo/1.5/dojox/form/resources/CheckedMultiSelect.css";
+		</style>
+		<!-- load dojo and provide config via data attribute @import "http://ajax.googleapis.com/ajax/libs/dojo/1.5/dijit/themes/claro/claro.css";-->
+
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+				data-dojo-config="isDebug: true,parseOnLoad: true">
+		</script>
+		<script>
+			dojo.require('dojox.validate');
+			dojo.require('dojox.validate.us');
+			dojo.require('dojox.validate.web');
+			
+			/* basic dijit classes */
+			dojo.require('dijit.form.CheckBox');
+			dojo.require('dijit.form.Textarea');
+			dojo.require('dijit.form.FilteringSelect');
+			dojo.require('dijit.form.TextBox');
+			dojo.require('dijit.form.ValidationTextBox');
+			dojo.require('dijit.form.DateTextBox');
+			dojo.require('dijit.form.TimeTextBox');
+			dojo.require('dijit.form.Button');
+			dojo.require('dijit.form.RadioButton');
+			dojo.require('dijit.form.Form');
+			dojo.require('dijit.form.DateTextBox');
+			
+			/* basic dojox classes */
+			dojo.require('dojox.form.BusyButton');
+			dojo.require('dojox.form.CheckedMultiSelect');
+		</script>
+	</head>
+	<body class="claro">
+        <h1>Sign Up</h1>
+		<h2> 
+                {%if form.error %}
+                Sorry form was not Valid !!
+                {%endif%}
+        
+        </h2>
+		
+		<form dojoType="dijit.form.Form" method="post" action='/signupfill/'>
+       
+		<script type="dojo/method" event="onSubmit">
+			if(this.validate()) {
+				return confirm('Form is valid, press OK to submit');
+			} else {
+				alert('Form contains invalid data.  Please correct first');
+				return false;
+			}
+			return true;
+		</script>
+		<table cellpadding="0" cellspacing="2">
+			<tr>
+				<td valign="top"><strong>First Name*: </strong></td>
+				<td><input type="text" required="true" name="firstName" id="firstName" placeholder="Your Name" 
+					dojoType="dijit.form.ValidationTextBox" missingMessage="Ooops!  You forgot your first name!" /></td>
+			</tr>
+			<tr>
+
+				<td valign="top"><strong>Website*:  </strong></td>
+				<td><input type="text" required="true" name="website" id="website" placeholder="Your Website" 
+					dojoType="dijit.form.ValidationTextBox" validator="dojox.validate.isUrl" /></td>
+			</tr>
+			<tr>
+				<td valign="top"><strong>Email*:  </strong></td>
+				<td><input type="text" required="true" name="email" id="email" dojoType="dijit.form.ValidationTextBox" 
+					validator="dojox.validate.isEmailAddress" /></td>
+			</tr>
+			<tr>
+
+				<td valign="top"><strong>Date of Birth*:  </strong></td>
+				<td><input type="text" required="true" name="bday" id="bday" dojoType="dijit.form.DateTextBox" value="7/5/1983" /></td>
+			</tr>
+			
+
+			<tr>
+				<td valign="top"><strong>Sex: </strong></td>
+				<td>
+					<select name="sex" id="sex" dojoType="dijit.form.FilteringSelect">
+						<option value="">Select your Gender</option>
+
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top"><strong>Country: </strong></td>
+				<td>
+					<select name="country" id="country" dojoType="dijit.form.FilteringSelect">
+						<option value="">Select your Country</option>
+
+						<option value="India">India</option>
+						<option value="China">China</option>
+						<option value="America">America</option>
+						<option value="U.K">U.K</option>
+						<option value="others">others</option>
+
+					</select>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td valign="top"><strong>Password*: </strong></td>
+				<td><input type="text" required="true" name="password" id="password" placeholder="Your Password" 
+					dojoType="dijit.form.ValidationTextBox" missingMessage="Ooops!  You forgot your password!" /></td>
+			</tr>
+			<tr>
+				<td valign="top"><strong>Confirm Password*: </strong></td>
+				<td><input type="text" required="true" name="cpassworf" id="password" placeholder="Confirm your password" 
+					dojoType="dijit.form.ValidationTextBox" missingMessage="Ooops!  please fill it!" /></td>
+			</tr>
+<tr>
+				<td valign="top"><strong>Send Emails? </strong></td>
+				<td><input type="checkbox" id="checkbox" checked="checked" dojoType="dijit.form.CheckBox" /></td>
+			</tr>
+<!---
+			<tr>
+				<td valign="top"><strong>Email Format: </strong></td>
+				<td>
+				<input type="radio" id="radio1" name="format" checked="checked" dojoType="dijit.form.RadioButton" /> 
+				<label for="radio1">HTML</label>
+				&nbsp;&nbsp;&nbsp;
+				<input type="radio" id="radio2" name="format" dojoType="dijit.form.RadioButton" />
+				<label for="radio2">Text</label>
+
+				</td>
+			</tr>
+	-->
+        	</table>
+		
+		<!-- submit buttons -->
+		<input type="submit" value="Submit Form" label="Submit Form" id="submitButton" dojoType="dijit.form.Button" />
+		</form>
+	</body>
+</html>
+

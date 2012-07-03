@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Demo: DojoX Validation with Dijit Forms</title>
+		<style type="text/css" title="text/css">
+			@import "http://ajax.googleapis.com/ajax/libs/dojo/1.5/dijit/themes/claro/claro.css";
+			
+		</style>
+		<!-- load dojo and provide config via data attribute -->
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+				data-dojo-config="isDebug: true,parseOnLoad: true">
+		</script>
+		<script>
+			dojo.require('dojox.validate');
+			dojo.require('dojox.validate.us');
+			dojo.require('dojox.validate.web');
+
+
+			/* basic dijit classes */
+
+			dojo.require('dijit.form.CheckBox');
+			dojo.require('dijit.form.Textarea');
+			dojo.require('dijit.form.FilteringSelect');
+			dojo.require('dijit.form.TextBox');
+			dojo.require('dijit.form.ValidationTextBox');
+			dojo.require('dijit.form.DateTextBox');
+			dojo.require('dijit.form.TimeTextBox');
+			dojo.require('dijit.form.Button');
+			dojo.require('dijit.form.RadioButton');
+			dojo.require('dijit.form.Form');
+			dojo.require('dijit.form.DateTextBox');
+
+			
+			/* basic dojox classes */
+			dojo.require('dojox.form.BusyButton');
+			dojo.require('dojox.form.CheckedMultiSelect');
+
+		</script>
+
+	</head>
+
+<body>
+	
+	<h2>Set Budget </h2>
+	<table>
+		<tr>
+ 			<td>Month</td>
+		     <td>
+					<select name="month" id="month" >
+						<option value="">Whole year</option>
+						<option value="january">January</option>
+						<option value="february">February</option>
+						<option value="march">March</option>
+						<option value="april">April</option>
+						<option value="may">May</option>
+						<option value="june">June</option>
+						<option value="july">July</option>
+						<option value="august">August</option>
+						<option value="september">September</option>
+						<option value="october">October</option>
+						<option value="november">November</option>
+						<option value="december">December</option>			
+					</select>
+			</td><
+		
+ 			<td>Year</td>
+		     <td><td>
+					<select name="year" id="year" >
+						<option value="">select a  year</option>
+						<option value="2009">2009</option>
+						<option value="2010">2010</option>
+						<option value="2011">2011</option>
+						<option value="2012">2012</option>
+						<option value="2013">2013</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+
+					</select>
+			</td></td>
+		</tr>
+
+		<tr>
+		<td>Category</td>
+		<td><select name="year" id="year" >
+						<option value="">select a  year</option>
+						<option value="2009">2009</option>
+						<option value="2010">2010</option>
+						<option value="2011">2011</option>
+						<option value="2012">2012</option>
+						<option value="2013">2013</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+
+					</select>
+		</td>
+		</tr>
+
+<tr>		<td>Amount</td><td><input type="text" id=amount></td></tr>
+	</table>
+	<input type="button" id="set" value="set"/>
+</body>
+</html>

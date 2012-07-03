@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>eWallet</title>
+</head>
+<body>
+<h2>See our remaining budget</h2>
+
+
+    <form action='/check/' method='post'>
+	<table>
+		<tr>
+ 			<td>Month</td>
+		     <td>
+					<select name="month" id="month" >
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>			
+					</select>
+			</td>
+		
+ 			<td>Year</td>
+		     <td><td>
+					<select name="year" id="year" >
+						<option value="">select a  year</option>
+						<option value="2009">2009</option>
+						<option value="2010">2010</option>
+						<option value="2011">2011</option>
+						<option value="2012">2012</option>
+						<option value="2013">2013</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+
+					</select>
+			</td></td>
+		</tr>
+
+		<tr>
+		<td>Category</td>
+		<td><select name="category" id="category" >
+						<option value="">select a Category</option>
+						<option value="food">food</option>
+						<option value="sex">sex</option>
+						<option value="defence">defence</option>
+						<option value="health">health</option>
+						<option value="education">education</option>
+						<option value="luxury">luxury</option>
+						<option value="waste">waste</option>
+
+					</select>
+		</td>
+		</tr>
+	</table>
+	<button type="submit" id="set" value="set">Submit</button>
+</body>
+
+</html>

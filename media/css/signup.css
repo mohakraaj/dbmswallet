@@ -1,0 +1,26 @@
+.signup 
+{    
+ border: 1px solid #006; 
+
+} 
+signup {
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+}
+signup.text, textarea {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 2px solid #DDDDDD;
+    padding: 2px;
+}
+signup.text:hover, textarea:hover {
+    border-color: #BBBBBB;
+}
+signup.text:focus, textarea:focus {
+    border-color: #007934;
+}
+#name
+{
+left:30px;
+}
+

@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>eWallet</title>
+
+		<style type="text/css" title="text/css">
+			@import "http://ajax.googleapis.com/ajax/libs/dojo/1.5/dijit/themes/claro/claro.css";
+			
+		</style>
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js" data-dojo-config="isDebug: true,parseOnLoad: true">
+</script>
+<script>
+dojo.require('dojox.validate');
+dojo.require('dojox.validate.us');
+dojo.require('dojox.validate.web');
+dojo.require('dijit.form.DateTextBox');
+dojo.require('dijit.form.ValidationTextBox');
+</script>
+</head>
+<body class="claro">
+<form  method="post" action='/loan/'>
+<table>
+
+
+<tr><td>Name</td><td><input type="text" name="fName"  id="fName" dojoType="dijit.form.ValidationTextBox" missingMessage="Ooops!  You forgot your first name!"></input></td></tr>
+<tr><td>email</td><td><input type="text" name="email" id="email" dojoType="dijit.form.ValidationTextBox" 
+					validator="dojox.validate.isEmailAddress"></input></td></tr>
+<tr><td>Currency</td><td>
+<select name="currency" id="currency"  dojoType="dijit.form.ValidationTextBox" missingMessage="Ooops!  You forgot your currency!">
+                        <option value="">Select your Country</option>
+
+                        <option value="Rupees">Rupees</option>
+                        <option value="Dollar">Dollar</option>
+                        <option value="Euro">Euro</option>
+                        <option value="Yen">Yen</option>
+                        <option value="Dirham">Dirham</option>
+
+</select>
+</td></tr>
+<tr><td>Amount</td><td><input type="text" name="amount" id="amount" dojoType="dijit.form.ValidationTextBox" missingMessage="Ooops!  You forgot your amount !"></input></td></tr>
+<tr><td>Interest</td><td><input type="text" name="interest" id="interest" dojoType="dijit.form.ValidationTextBox" missingMessage="Ooops!  You forgot your amount!"></input></td></tr>
+<tr><td>DeadLine</td><td><input type="text" name="bday" id="bday" dojoType="dijit.form.DateTextBox" value="7/5/1983" /></td></tr>
+<tr><td><button type="submit">Submit</button></td></tr>
+
+
+</table>
+</form>
+</body>

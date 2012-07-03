@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>eWallet</title>
+        <style type="text/css" title="text/css">
+			@import "http://ajax.googleapis.com/ajax/libs/dojo/1.5/dijit/themes/claro/claro.css";
+			
+		</style>
+				<!-- load dojo and provide config via data attribute -->
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+				data-dojo-config="isDebug: true,parseOnLoad: true">
+		</script>
+		<script>
+			dojo.require('dojox.validate');
+			dojo.require('dojox.validate.us');
+			dojo.require('dojox.validate.web');
+
+
+			/* basic dijit classes */
+
+			dojo.require('dijit.form.CheckBox');
+			dojo.require('dijit.form.Textarea');
+			dojo.require('dijit.form.FilteringSelect');
+			dojo.require('dijit.form.TextBox');
+			dojo.require('dijit.form.ValidationTextBox');
+			dojo.require('dijit.form.DateTextBox');
+			dojo.require('dijit.form.TimeTextBox');
+			dojo.require('dijit.form.Button');
+			dojo.require('dijit.form.RadioButton');
+			dojo.require('dijit.form.Form');
+			dojo.require('dijit.form.DateTextBox');
+			
+			/* basic dojox classes */
+			dojo.require('dojox.form.BusyButton');
+			dojo.require('dojox.form.CheckedMultiSelect');
+
+		</script>
+<body  class="claro">
+<h2>Set Transaction </h2>
+    <form action='/transaction/' method='post'>
+<table>
+<tr><td>Amount</td><td><input type="text" id="amount" name="amount"></td></tr>
+<tr><td>Date</td><td><input type="text" required="true" name="date" id="date" dojoType="dijit.form.DateTextBox" value="7/5/1983" /></td></tr>
+<tr>
+		<td>Category</td>
+		<td><select name="category" id="category" >
+						<option value="">select a Category</option>
+						<option value="food">food</option>
+						<option value="sex">sex</option>
+						<option value="defence">defence</option>
+						<option value="health">health</option>
+						<option value="education">education</option>
+						<option value="luxury">luxury</option>
+						<option value="waste">waste</option>
+
+					</select>
+		</td>
+		</tr>
+</table>
+<button type="submit" id="set" value="set">Submit</button>
+
+</body>
+</html>

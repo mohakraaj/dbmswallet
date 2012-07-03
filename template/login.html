@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>eWallet</title>
+		<link rel="stylesheet" href="style.css" media="screen">
+
+		<style type="text/css" title="text/css">
+			@import "http://ajax.googleapis.com/ajax/libs/dojo/1.5/dijit/themes/claro/claro.css";
+				</style>
+		<!-- load dojo and provide config via data attribute -->
+
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+				data-dojo-config="isDebug: true,parseOnLoad: true">
+		</script>
+		
+	</head>
+	<body class="claro">
+		<h1>Log In</h1>
+		
+		<form dojoType="dijit.form.Form" method="post" action='/loginfill/'>
+		
+		<table cellpadding="0" cellspacing="2">
+			<tr>
+				<td valign="top"><strong>First Name: </strong></td>
+				<td><input type="text" required="true" name="firstName" id="firstName" placeholder="Your Name"/></td>
+			</tr>
+			<tr>
+				<td valign="top"><strong>Password: </strong></td>
+				<td><input type="text" required="true" name="password" id="password" placeholder="Your Password"/></td>
+			</tr>
+					</table>
+		
+		<!-- submit buttons -->
+		<input type="submit" value="Submit Form" label="Log In" id="submitButton" dojoType="dijit.form.Button" />
+		</form>
+	</body>
+</html>
+

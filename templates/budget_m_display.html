@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TemplateWorld - Artificial Casting</title>
+
+<link href="/site_media/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="icon" href="/site_media/images/icon.ico" />
+<link rel="stylesheet" href="/site_media/css/style.css" media="screen">
+		
+    <!-- load dojo and provide config via data attribute -->
+<style type="text/css" title="text/css">
+			@import "/site_media/css/claro.css";
+			
+		</style>
+
+		<script src="/site_media/js/dojo.xd.js"
+				data-dojo-config="isDebug: true,parseOnLoad: true">
+		</script>	
+         <link rel="stylesheet" href="/site_media/css/menu.css" type="text/css" media="all">
+            	<script>
+			charData=[];
+			// Require the basic 2d chart resource: Chart2D
+			dojo.require("dojox.charting.Chart2D");
+
+			// Require the theme of our choosing
+			//"Claro", new in Dojo 1.6, will be used
+			dojo.require("dojox.charting.themes.Tom");
+
+			// Ajax function
+				
+           			 function refreshContent() {
+            		    dojo.xhrGet({
+            		        url:"/budgetmdata",
+                  	  load: function(newContent) {
+		
+                  	      chartData=eval(newContent);
+            			// Create the chart within it's "holding" node
+				var chart = new dojox.charting.Chart2D("chartNode");
+
+				// Set the theme
+				chart.setTheme(dojox.charting.themes.Tom);
+
+				// Add the only/default plot 
+				chart.addPlot("default", {
+					type: "Lines",
+					markers: true
+				});
+				
+				// Add axes
+				jdata=[{value: 1, text: "Jan"}, {value: 2, text: "Feb"},
+        				{value: 3, text: "Mar"}, {value: 4, text: "Apr"},
+        				{value: 5, text: "May"}, {value: 6, text: "Jun"},
+        				{value: 7, text: "Jul"}, {value: 8, text: "Aug"},
+        				{value: 9, text: "Sep"}, {value: 10, text: "Oct"},
+        				{value: 11, text: "Nov"}, {value: 12, text: "Dec"}];
+				chart.addAxis("x", {
+						    labels:jdata
+						    });
+
+				chart.addAxis("y", { min: 5000, max: 15000, vertical: true, fixLower: "major", fixUpper: "major" });
+
+				// Add the series of data
+				chart.addSeries("Monthly Sales",chartData);
+
+				// Render the chart!
+				chart.render();
+
+		      	  },
+
+			//Ajax error
+                  	  error: function() {
+                  	      // Do nothing -- keep old content there
+                  	  }
+                		});
+            		}
+
+			
+			// Define the data
+			
+			
+			// When the DOM is ready and resources are loaded...
+			dojo.ready(function() {
+				refreshContent();
+								
+			});
+			
+		</script>
+</head>
+
+<body>
+<div id="headerbg">
+  <div id="headerblank">
+  <div id="exampler">
+
+    <div class="menuholder">
+        <ul class="menu slide">
+           <li><a href="#" class="red">Home</a>
+                            <div class="subs">
+                    <dl>
+                       
+                        <dd><a href="/">login</a></dd></dl>
+                        <dl>
+                       
+                        <dd><a href="/logout/">logout</a></dd></dl>
+
+                    
+                </div>
+
+            </li>
+
+            <li><a href="#" class="orange">Loan</a>
+                <div class="subs">
+                    <dl>
+                        <dd><a href="/loanfill/">Add Loans</a></dd>
+                   </dl><dl>     <dd><a href="/loan_display/">View/Edit Loans</a></dd>
+					</dl>
+                </div>
+            </li>
+            <li><a href="#" class="yellow">Expense</a>
+                <div class="subs">
+                    <dl>
+                       
+                        <dd><a href="/showtransaction/">Set Expenses</a></dd></dl><dl>
+                        <dd><a  href="/displaytran/">View Expenses</a></dd>
+                    </dl>
+                    
+                </div>
+            </li>
+            <li><a href="#" class="green">Budget</a>
+            <div class="subs">
+                    <dl>
+                       
+                        <dd><a href="/budget_m_display/">Monthly Analysis</a></dd></dl><dl>
+                        <dd><a href="/budget_y_display/">Yearly Analysis</a></dd></dl><dl>
+                         <dd><a href="/budget_display/"> Category-wise </a></dd></dl><dl>
+                         <dd><a href="/showbudget/">Set Budget</a></dd>
+                    </dl>
+                    
+                </div></li>
+           
+           
+        </ul>
+        <div class="back"></div>
+        <div class="shadow"></div>
+    </div>
+    <div style="clear:both"></div>
+
+  </div>
+    <div id="header"></div>
+  </div>
+</div>
+<div id="contentbg">
+  <div id="contentblank">
+    <div id="content">
+      <div id="contentleft">
+        <div id="leftnavheading">
+          <h4>Upcoming Features</h4>
+        </div>
+        <div id="leftnav">
+          <ul>
+            <li><a href="#" class="leftnav">Intelligent Budget Analsys</a></li>
+            <li><a href="#" class="leftnav">Integration with major banks all over the world.</a></li>
+            <li><a href="#" class="leftnav">Area wise Economy monitoring.</a></li>
+            <li><a href="#" class="leftnav">Stocks and Forex integration</a></li>
+            <li><a href="#" class="leftnav">Android and iPhone apps.</a></li>
+            <li><a href="#" class="leftnav">Custumization of analysis and setting.</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      <div id="contentmid">
+        <div class="midheading">
+         	
+	      <h2>Monthly Budget analysis</h2>
+		
+		<div id="chartNode" style="width:500px;height:300px;"></div></div>
+        <div id="comments">
+        
+        </div>
+    
+        
+    </div>
+    </div>
+  </div>
+</div>
+<div id="footerbg">
+  <div id="footerblank">
+    <div id="footer">
+      <div id="footerbox">
+        <div class="footerheading">
+        <h4>$99/month</h4></div>
+        <div class="footertxt">Enjoy acces to a months loan analysis.</div>
+      </div>
+      <div id="footermid"><div class="footerheading">
+        <h4>$999/month</h4></div>
+      <div class="footertxt">Enjoy acces to a months loan and budget analysis</div>
+      </div>
+      <div id="footerlast">
+        <div class="footerheading">
+          <h4>$9999/month</h4>
+        </div>
+        <div class="footertxt">Enjoy acces to a months loan and upcoming INTELLIGENT budget analysis</div>
+      </div>
+      <div id="footerlinks"><a href="#" class="footerlinks">Home</a> | <a href="#" class="footerlinks">About Us</a> | <a href="#" class="footerlinks">Support</a> | <a href="#" class="footerlinks">Forum</a> | <a href="#" class="footerlinks">Development</a> | <a href="#" class="footerlinks">Conact Us</a></div>
+      <div id="copyrights">© Copyright Information Goes Here. All Rights Reserved.</div>
+      <div id="designedby">Designed by Mohak, Nishanth and Monish<a href="http://www.smashingmagazine.com" target="_blank" class="designedby"></a></div>
+      <div id="validation"><a href="http://validator.w3.org/check?uri=referer" class="xhtml">xhtml</a><a href="http://jigsaw.w3.org/css-validator/check/referer" class="css">css</a></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>TemplateWorld - Artificial Casting</title>
+<link href="/site_media/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="icon" href="/site_media/images/icon.ico" />
+<meta charset="utf-8">
+			<link rel="stylesheet" href="/site_media/css/style.css" media="screen">
+ <link rel="stylesheet" href="/site_media/css/menu.css" type="text/css" media="all">
+		<style type="text/css" title="text/css">
+			@import "/site_media/css/claro.css";
+			
+		</style>
+		<!-- load dojo and provide config via data attribute -->
+
+		<script src="/site_media/js/dojo.xd.js"
+				data-dojo-config="isDebug: true,parseOnLoad: true">
+		</script>
+</head>
+
+<body class="claro">
+<div id="headerbg">
+  <div id="headerblank">
+   <div id="headerblank">
+  {%if error %}
+ <div id="exampler">
+
+    <div class="menuholder">
+        <ul class="menu slide">
+            <li><a href="/" class="red">Home</a></li>
+            <li><a href="#" class="orange">Loan</a>
+                <div class="subs">
+                    <dl>
+                        <dd><a href="/loanfill/">Add Loans</a></dd>
+                   </dl><dl>     <dd><a href="/loan_display/">View Loans</a></dd>
+					</dl>
+                </div>
+            </li>
+            <li><a href="#" class="yellow">Expense</a>
+                <div class="subs">
+                    <dl>
+                       
+                        <dd><a href="/showtransaction/">Set Expenses</a></dd></dl><dl>
+                        <dd><a href="/displaytran/">View Expenses</a></dd>
+                    </dl>
+                    
+                </div>
+            </li>
+            <li><a href="#" class="green">Budget</a>
+            <div class="subs">
+                    <dl>
+                       
+                        <dd><a href="/budget_m_display/">Monthly Analysis</a></dd></dl><dl>
+                        <dd><a href="/budget_y_display/">Yearly Analysis</a></dd></dl><dl>
+                         <dd><a href="/budget_display/"> Category-wise </a></dd></dl><dl>
+                         <dd><a href="/showbudget/">Set Budget</a></dd>
+                    </dl>
+                    
+                </div></li>
+           
+           
+        </ul>
+        <div class="back"></div>
+        <div class="shadow"></div>
+    </div>
+    <div style="clear:both"></div>
+
+  </div>
+  {%endif%}
+    <div id="header"></div>
+  </div>
+</div>
+<div id="contentbg">
+  <div id="contentblank">
+    <div id="content">
+      <div id="contentleft">
+        <div id="leftnavheading">
+          <h4>Upcoming Features</h4>
+        </div>
+        <div id="leftnav">
+          <ul>
+            <li><a href="#" class="leftnav">Intelligent Budget Analsys</a></li>
+            <li><a href="#" class="leftnav">Integration with major banks all over the world.</a></li>
+            <li><a href="#" class="leftnav">Area wise Economy monitoring.</a></li>
+            <li><a href="#" class="leftnav">Stocks and Forex integration</a></li>
+            <li><a href="#" class="leftnav">Android and iPhone apps.</a></li>
+            <li><a href="#" class="leftnav">Custumization of analysis and setting.</a></li>
+            
+          </ul>
+        </div>
+      </div>
+      <div id="contentmid">
+        <div class="midheading">
+          <h2>Log in</h2>
+        </div class="claro">
+        <div class="midtxt"><span class="midboldtxt"><h2> 
+                {%if form.error %}
+                Sorry form was not Valid !!
+                {%endif%}
+        
+        </h2>
+		
+	      	<form dojoType="dijit.form.Form" method="post" action='/loginfill/'>
+		
+		<table cellpadding="0" cellspacing="2">
+			<tr>
+				<td valign="top"><strong>First Name: </strong></td>
+				<td><input type="text" required="true" name="firstName" id="firstName" placeholder="Your Name"/></td>
+			</tr>
+			<tr>
+				<td valign="top"><strong>Password: </strong></td>
+				<td><input type="text" required="true" name="password" id="password" placeholder="Your Password"/></td>
+			</tr>
+					</table>
+		
+	<!-- submit buttons -->
+		<input type="submit" value="Submit Form" label="Submit Form" id="submitButton" dojoType="dijit.form.Button" />
+		</form></div>
+        <div id="comments">
+       <a href="/signup/">Not Registered?</a>
+        </div>
+        <div class="midheading">
+          <h2>Latest Improvisations<span class="projectheading">Monday, November 07, 2011</span></h2>
+        </div>
+        <div id="projectbg">
+          <div id="projectthumnail"></div>
+          <div id="projecttxtblank">
+            <div id="projecttxt">
+              <p><span class="projectboldtxt">Budget Setting :</span></p>
+              <p>Clearly a very essential tool to save money.</p>
+            </div>
+          </div>
+        </div>
+        <div class="midheading">
+          <h2>Our main purpose</h2>
+        </div>
+        <div id="purposetxt">Make effective Finance Management available to everyone.</div>
+        <div id="purposenav">
+          <ul>
+            <li><a href="#" class="purposenav">Wide Range of Categories.</a></li>
+            <li><a href="#" class="purposenav">Send Notifications to Loaners</a></li>
+          </ul>
+          <ul>
+            <li><a href="#" class="purposenav">Graphical Budget Analysis</a></li>
+            <li><a href="#" class="purposenav">Satisfaction Guarenteed</a></li>
+          </ul>
+        </div>
+      </div>
+      <div id="contentright">
+        <div class="rightheading">
+          <h4>Our Users</h4>
+        </div>
+        <div id="galleryblank">
+          <div id="rightpic"><div class="rightpic"><br/>
+          &nbsp;Ratan Tata</div></div>
+          <div id="rightpic02"><div class="rightpic02"><br/>
+          &nbsp;Katrina Kaif</div></div>
+           <div id="rightpic03"><div href="#" class="rightpic03"> <br/>
+          &nbsp;Benoît Battistelli <br/>
+;(president EPO)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footerbg">
+  <div id="footerblank">
+    <div id="footer">
+      <div id="footerbox">
+        <div class="footerheading">
+        <h4>$99/month</h4></div>
+        <div class="footertxt">Enjoy acces to a months loan analysis.</div>
+      </div>
+      <div id="footermid"><div class="footerheading">
+        <h4>$999/month</h4></div>
+      <div class="footertxt">Enjoy acces to a months loan and budget analysis</div>
+      </div>
+      <div id="footerlast">
+        <div class="footerheading">
+          <h4>$9999/month</h4>
+        </div>
+        <div class="footertxt">Enjoy acces to a months loan and upcoming INTELLIGENT budget analysis</div>
+      </div>
+      <div id="footerlinks"><a href="#" class="footerlinks">Home</a> | <a href="#" class="footerlinks">About Us</a> | <a href="#" class="footerlinks">Support</a> | <a href="#" class="footerlinks">Forum</a> | <a href="#" class="footerlinks">Development</a> | <a href="#" class="footerlinks">Conact Us</a></div>
+      <div id="copyrights">© Copyright Information Goes Here. All Rights Reserved.</div>
+      <div id="designedby">Designed by Mohak, Nishanth and Monish<a href="http://www.smashingmagazine.com" target="_blank" class="designedby"></a></div>
+      
+    </div>
+  </div>
+</div>
+</body>
+</html>

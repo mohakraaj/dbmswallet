@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Budget Analysis</title>
+		<link rel="stylesheet" href="style.css" media="screen">
+		
+		<!-- load dojo and provide config via data attribute -->
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js" 
+				data-dojo-config="isDebug: true,parseOnLoad: true">
+		</script>
+
+		<script>
+               chartData=[];
+               // Require the basic 2d chart resource: Chart2D
+
+			dojo.require("dojox.charting.Chart2D");
+			
+			// Require the highlighter
+
+			dojo.require("dojox.charting.action2d.Highlight");
+
+			// Require the theme of our choosing
+			//"Claro", new in Dojo 1.6, will be used
+
+			dojo.require("dojox.charting.themes.MiamiNice");
+			
+
+			   function refreshContent() {
+               
+                dojo.xhrGet({
+                    url:"/budgetcdata",
+              
+                    load: function(newContent) {
+                    
+                            chartData=eval(newContent);
+                        	var chart = new dojox.charting.Chart2D("chartNode");
+
+                            // Set the theme
+                            chart.setTheme(dojox.charting.themes.MiamiNice);
+
+                            // Add the only/default plot 
+                            chart.addPlot("default", {
+                            type: "Columns",
+                            markers: true,
+                            gap: 5
+                                });
+                                
+           
+                            jdata=[{value: 1, text: 'food'}, {value: 2, text: 'sex'},{value: 3, text: 'defence'}, {value: 4, text: 'waste'},{value: 5, text: 'luxury'}, {value: 6, text: 'health'},{value: 7, text: 'education'}];
+
+	
+                            chart.addAxis("x", {
+                            labels:jdata
+                            });
+
+                            // Add axes
+                            //chart.addAxis("x");
+                            chart.addAxis("y", { vertical: true, fixLower: "major", fixUpper: "major" });
+
+                            // Add the series of data
+                            chart.addSeries("Monthly Sales",chartData);
+				
+                            // Highlight!
+                            new dojox.charting.action2d.Highlight(chart,"default");
+                            
+
+                            // Render the chart!
+                            chart.render();
+
+                                            },
+                    error: function() {
+                        // Do nothing -- keep old content there
+                    }
+                });
+            }
+
+                       
+						// Define the data
+						
+			// When the DOM is ready and resources are loaded...
+			dojo.ready(function() {
+                                refreshContent();
+                        
+				
+				// Create the chart within it's "holding" node
+							
+			});
+             // When the DOM is ready....
+         
+			
+		</script>
+	</head>
+	<body>
+		<h1>Budget analysis on categories</h1>
+		
+		<div id="chartNode" style="width:400px;height:300px;"></div>
+	</body>
+</html>
